@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Nevia Group AB – Ekonomisk förvaltning för bostadsrättsföreningar. Personligt, transparent och utan dolda kostnader.">
+<link rel="icon" type="image/png" href="nevia_logo_gold.png">
 <title>Nevia Group AB – Ekonomisk förvaltning för BRF</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -423,16 +424,16 @@
       <h2 class="section-title">Låt oss ta ett möte.</h2>
       <p class="section-sub">Kostnadsfritt och utan förpliktelser. Vi går igenom er förenings situation och berättar vad Nevia kan erbjuda.</p>
       <div class="contact-info">
-        <div class="contact-row"><span class="contact-label">E-post</span><a href="mailto:kontakt@nevia.se" class="contact-value">kontakt@nevia.se</a></div>
+        <div class="contact-row"><span class="contact-label">E-post</span><a href="/cdn-cgi/l/email-protection#b5dedadbc1d4dec1f5dbd0c3dcd49bc6d0" class="contact-value"><span class="__cf_email__" data-cfemail="701b1f1e04111b04301e150619115e0315">[email&#160;protected]</span></a></div>
         <div class="contact-row"><span class="contact-label">Telefon</span><a href="tel:0762916283" class="contact-value">076 291 62 83</a></div>
         <div class="contact-row"><span class="contact-label">Org.nr</span><span class="contact-value">559579-8579</span></div>
       </div>
     </div>
-    <form class="contact-form" onsubmit="handleSubmit(event)">
-      <div class="form-group"><label class="form-label">Namn</label><input class="form-input" type="text" placeholder="Ert namn" required></div>
-      <div class="form-group"><label class="form-label">E-post</label><input class="form-input" type="email" placeholder="er@epost.se" required></div>
-      <div class="form-group"><label class="form-label">Förening</label><input class="form-input" type="text" placeholder="Föreningens namn"></div>
-      <div class="form-group"><label class="form-label">Meddelande</label><textarea class="form-textarea" placeholder="Berätta kort om er förening..."></textarea></div>
+    <form class="contact-form" action="https://formspree.io/f/mojpbobl" method="POST">
+      <div class="form-group"><label class="form-label">Namn</label><input class="form-input" type="text" name="namn" placeholder="Ert namn" required></div>
+      <div class="form-group"><label class="form-label">E-post</label><input class="form-input" type="email" name="email" placeholder="er@epost.se" required></div>
+      <div class="form-group"><label class="form-label">Förening</label><input class="form-input" type="text" name="forening" placeholder="Föreningens namn"></div>
+      <div class="form-group"><label class="form-label">Meddelande</label><textarea class="form-textarea" name="meddelande" placeholder="Berätta kort om er förening..."></textarea></div>
       <button type="submit" class="form-submit">Skicka meddelande</button>
     </form>
   </div>
@@ -443,7 +444,7 @@
   <p class="footer-meta">Org.nr 559579-8579 &nbsp;·&nbsp; © 2025 Nevia Group AB &nbsp;·&nbsp; <a href="om-oss.html">Om oss</a></p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const href = a.getAttribute('href');
@@ -460,13 +461,4 @@
     btn.textContent = 'Skickat!';
     btn.style.background = '#2d6a4f';
     btn.style.color = '#fff';
-    setTimeout(() => { btn.textContent = 'Skicka meddelande'; btn.style.background = ''; btn.style.color = ''; e.target.reset(); }, 3000);
-  }
-
-  window.addEventListener('scroll', () => {
-    document.getElementById('nav').style.borderBottomColor =
-      window.scrollY > 60 ? 'rgba(201,168,76,0.35)' : 'rgba(201,168,76,0.2)';
-  });
-</script>
-</body>
-</html>
+    setTimeout(() => { btn.textContent = 'Skicka meddelande'; btn.style.background = ''; btn.style.color = ''; e.target.re
