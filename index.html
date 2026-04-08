@@ -430,6 +430,7 @@
       </div>
     </div>
     <form class="contact-form" action="https://formspree.io/f/mojpbobl" method="POST">
+      <input type="hidden" name="_next" value="https://nevia.se?skickat=1">
       <div class="form-group"><label class="form-label">Namn</label><input class="form-input" type="text" name="namn" placeholder="Ert namn" required></div>
       <div class="form-group"><label class="form-label">E-post</label><input class="form-input" type="email" name="email" placeholder="er@epost.se" required></div>
       <div class="form-group"><label class="form-label">Förening</label><input class="form-input" type="text" name="forening" placeholder="Föreningens namn"></div>
@@ -444,7 +445,7 @@
   <p class="footer-meta">Org.nr 559579-8579 &nbsp;·&nbsp; © 2025 Nevia Group AB &nbsp;·&nbsp; <a href="om-oss.html">Om oss</a></p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const href = a.getAttribute('href');
@@ -455,10 +456,20 @@
     });
   });
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.form-submit');
-    btn.textContent = 'Skickat!';
-    btn.style.background = '#2d6a4f';
-    btn.style.color = '#fff';
-    setTimeout(() => { btn.textContent = 'Skicka meddelande'; btn.style.background = ''; btn.style.color = ''; e.target.re
+  if (window.location.search.includes('skickat=1')) {
+    window.addEventListener('DOMContentLoaded', () => {
+      const form = document.querySelector('.contact-form');
+      if (form) {
+        form.innerHTML = '<div style="padding:40px 0;"><p style="font-family:Cormorant Garamond,serif;font-size:32px;font-weight:700;color:#C9A84C;margin-bottom:12px;">Tack för ditt meddelande.</p><p style="font-size:15px;color:rgba(255,255,255,0.6);font-weight:300;line-height:1.8;">Vi återkommer inom kort.</p></div>';
+        setTimeout(() => document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' }), 200);
+      }
+    });
+  }
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').style.borderBottomColor =
+      window.scrollY > 60 ? 'rgba(201,168,76,0.35)' : 'rgba(201,168,76,0.2)';
+  });
+</script>
+</body>
+</html>
