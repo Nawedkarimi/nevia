@@ -3,472 +3,574 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Nevia Group AB – Ekonomisk förvaltning för bostadsrättsföreningar. Personligt, transparent och utan dolda kostnader.">
-<link rel="icon" type="image/png" href="nevia_logo_gold.png">
-<title>Nevia Group AB – Ekonomisk förvaltning för BRF</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Nevia Group AB – Ekonomisk förvaltning för bostadsrättsföreningar. Fast månadsavgift, namngiven förvaltare, full transparens.">
+<title>Nevia Group AB – Ekonomisk förvaltning för bostadsrättsföreningar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy:       #0D1B2A;
-    --navy-mid:   #1A2F4A;
-    --gold:       #C9A84C;
-    --gold-light: #E8C97A;
-    --gold-pale:  #f5ecd4;
-    --cream:      #FAF8F3;
-    --white:      #FFFFFF;
-    --text:       #1a1a1a;
-    --muted:      #6b7280;
-    --line:       #e5e1d8;
+    --navy:       #0d1f3c;
+    --navy-mid:   #1a3460;
+    --navy-light: #243d70;
+    --gold:       #c4a35a;
+    --gold-light: #d4b878;
+    --cream:      #f8f6f1;
+    --cream-dark: #f0ece3;
+    --white:      #ffffff;
+    --ink:        #1a1a2e;
+    --muted:      #5a6070;
+    --subtle:     #8890a0;
+    --line:       #e2ddd5;
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Outfit', sans-serif;
     background: var(--cream);
-    color: var(--text);
+    color: var(--ink);
     font-size: 16px;
     line-height: 1.6;
     overflow-x: hidden;
   }
 
-  /* NAV */
+  /* NAV – vit bakgrund, logo i naturlig mörkblå färg */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 0 5vw; height: 76px;
-    background: rgba(13, 27, 42, 0.97);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
-    transition: border-color 0.3s;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 64px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
   }
 
-  .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-
-  .nav-logo-mark { width: 34px; height: 34px; flex-shrink: 0; }
-
-  .nav-logo-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px; font-weight: 700;
-    color: var(--gold); letter-spacing: 0.3px; line-height: 1; display: block;
-  }
-
-  .nav-logo-sub {
-    font-size: 9px; font-weight: 300;
-    color: rgba(255,255,255,0.3); letter-spacing: 2.5px;
-    text-transform: uppercase; margin-top: 2px; display: block;
+  .nav-logo img {
+    height: 35px;
+    filter: none; /* naturlig mörkblå färg */
   }
 
   .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
 
   .nav-links a {
-    color: rgba(255,255,255,0.65); text-decoration: none;
-    font-size: 13px; font-weight: 400; letter-spacing: 0.3px; transition: color 0.2s;
+    font-size: 13.5px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--navy);
+    text-decoration: none;
+    transition: color 0.2s;
   }
-
-  .nav-links a:hover { color: var(--gold-light); }
+  .nav-links a:hover { color: var(--gold); }
 
   .nav-cta {
-    background: var(--gold) !important; color: var(--navy) !important;
-    padding: 10px 24px !important; font-weight: 500 !important; font-size: 13px !important;
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--white) !important;
+    background: var(--navy);
+    padding: 9px 22px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--navy-mid) !important; }
+
+  /* HERO – cream bakgrund */
+  .hero {
+    min-height: 100vh;
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
   }
 
-  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
-
-  /* HERO */
-  #hero {
-    min-height: 100vh; background: var(--navy);
-    display: grid; grid-template-columns: 1fr 1fr;
-    align-items: center; position: relative; overflow: hidden;
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 130px 70px 80px 80px;
+    position: relative;
+    z-index: 2;
   }
 
-  .hero-bg {
-    position: absolute; inset: 0;
-    background-image: repeating-linear-gradient(
-      -45deg, transparent, transparent 60px,
-      rgba(201,168,76,0.025) 60px, rgba(201,168,76,0.025) 61px
-    );
-  }
-
-  .hero-bar {
-    position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
-    background: linear-gradient(to bottom, var(--gold), transparent 50%, var(--gold));
-  }
-
-  .hero-content { padding: 140px 5vw 80px 8vw; position: relative; z-index: 2; }
-
+  /* "EKONOMISK FÖRVALTNING FÖR BRF" – dubblerad storlek */
   .eyebrow {
-    font-size: 11px; font-weight: 500; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--gold);
-    margin-bottom: 28px; display: flex; align-items: center; gap: 12px;
-    animation: fadeUp 0.6s ease both 0.1s;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.1s forwards;
+  }
+  .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+  .eyebrow span {
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: var(--navy);
   }
 
-  .eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
-
-  h1 {
+  .hero h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(52px, 5.5vw, 82px); font-weight: 700;
-    line-height: 1.05; color: var(--white); margin-bottom: 28px;
-    animation: fadeUp 0.6s ease both 0.2s;
+    font-size: clamp(38px, 4.5vw, 64px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--navy);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.3s forwards;
   }
-
-  h1 em { font-style: italic; color: var(--gold-light); }
+  .hero h1 em { font-style: italic; color: var(--gold); }
 
   .hero-sub {
-    font-size: 17px; color: rgba(255,255,255,0.55); font-weight: 300;
-    max-width: 440px; line-height: 1.8; margin-bottom: 48px;
-    animation: fadeUp 0.6s ease both 0.3s;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 400px;
+    margin-bottom: 44px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.5s forwards;
   }
 
-  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.6s ease both 0.4s; }
+  .hero-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.7s forwards;
+  }
 
   .btn-primary {
-    background: var(--gold); color: var(--navy);
-    padding: 15px 34px; font-size: 14px; font-weight: 500;
-    text-decoration: none; transition: all 0.2s; display: inline-block;
+    display: inline-block;
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--navy);
+    padding: 14px 32px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
   }
+  .btn-primary:hover { background: var(--navy-mid); transform: translateY(-1px); }
 
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-
-  .btn-ghost {
-    border: 1px solid rgba(255,255,255,0.22); color: rgba(255,255,255,0.75);
-    padding: 15px 34px; font-size: 14px; font-weight: 400;
-    text-decoration: none; transition: all 0.2s; display: inline-block;
+  .btn-text {
+    font-size: 13.5px;
+    font-weight: 300;
+    color: var(--muted);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
   }
+  .btn-text::after { content: '→'; transition: transform 0.2s; }
+  .btn-text:hover { color: var(--navy); }
+  .btn-text:hover::after { transform: translateX(4px); }
 
-  .btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); }
-
+  /* HERO RIGHT – tre kort 01/02/03 */
   .hero-right {
-    padding: 140px 8vw 80px 4vw; position: relative; z-index: 2;
-    display: flex; flex-direction: column; gap: 20px;
-    animation: fadeUp 0.7s ease both 0.35s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    padding: 130px 80px 80px 40px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.9s forwards;
   }
 
   .hero-card {
-    background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.15);
-    padding: 26px 30px; position: relative; transition: background 0.2s;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 26px 30px;
+    transition: box-shadow 0.2s;
   }
+  .hero-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
 
-  .hero-card:hover { background: rgba(255,255,255,0.07); }
-  .hero-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gold); }
-
-  .hero-card-num { font-size: 10px; letter-spacing: 2px; color: var(--gold); font-weight: 500; margin-bottom: 8px; }
+  /* 01, 02, 03 – +50% */
+  .hero-card-num {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
 
   .hero-card-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 6px;
   }
 
-  .hero-card-desc { font-size: 13.5px; color: rgba(255,255,255,0.45); font-weight: 300; line-height: 1.65; }
-
-  /* SECTIONS */
-  section { padding: 100px 8vw; }
-
-  .section-eyebrow {
-    font-size: 10px; font-weight: 500; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--gold);
-    margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
+  .hero-card-desc {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.55;
   }
 
-  .section-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+  /* GEMENSAMMA SEKTIONER */
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .section-label::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+  .section-label span {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
 
+  /* Blockrubriker h2 – +100% */
   .section-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(44px, 4.5vw, 64px); font-weight: 700;
-    line-height: 1.1; color: var(--navy); margin-bottom: 20px;
+    font-size: clamp(52px, 6vw, 88px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--navy);
+    margin-bottom: 14px;
   }
+  .section-title em { font-style: italic; }
 
   .section-sub {
-    font-size: 17px; color: var(--muted); font-weight: 300;
-    max-width: 560px; line-height: 1.8; margin-bottom: 64px;
+    font-size: 15.5px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 520px;
   }
 
-  /* HOW */
-  #how { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  /* VARFÖR NEVIA */
+  .pillars-section { background: var(--white); max-width: 100%; padding: 100px 0; }
+  .pillars-inner { max-width: 1200px; margin: 0 auto; padding: 0 80px; }
 
-  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-
-  .pillar { background: var(--white); padding: 52px 44px; transition: background 0.3s; position: relative; overflow: hidden; }
-  .pillar:hover { background: var(--cream); }
-
-  .pillar-num {
-    font-family: 'Cormorant Garamond', serif; font-size: 72px; font-weight: 700;
-    color: var(--gold-pale); line-height: 1; margin-bottom: 20px; display: block;
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+    background: var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--line);
   }
 
-  .pillar-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--navy); margin-bottom: 14px; line-height: 1.2; }
-  .pillar-desc { font-size: 15px; color: var(--muted); font-weight: 300; line-height: 1.8; }
+  .pillar { background: var(--white); padding: 44px 40px; position: relative; transition: background 0.25s; }
+  .pillar:hover { background: #fdfcfa; }
+  .pillar-num { font-size: 10px; font-weight: 500; letter-spacing: 2px; color: var(--gold); margin-bottom: 20px; }
+  .pillar h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--navy); line-height: 1.3; margin-bottom: 14px; }
+  .pillar p { font-size: 14px; color: var(--muted); font-weight: 300; line-height: 1.7; }
 
-  .pillar-accent { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
-  .pillar:hover .pillar-accent { transform: scaleX(1); }
+  /* TJÄNSTER */
+  .services-section { max-width: 100%; background: var(--cream); padding: 100px 0; }
+  .services-inner { max-width: 1200px; margin: 0 auto; padding: 0 80px; }
 
-  /* SERVICES */
-  #services { background: var(--navy); }
-  #services .section-title { color: var(--white); }
-  #services .section-sub { color: rgba(255,255,255,0.45); }
+  .services-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 60px; align-items: start; }
 
-  .services-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid rgba(201,168,76,0.3); }
-
-  .services-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: start; }
-
-  .service-list { display: grid; grid-template-columns: 1fr 1fr; }
-
-  .service-item { padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: flex-start; gap: 14px; }
-  .service-item:nth-child(odd) { padding-right: 24px; }
-  .service-item:nth-child(even) { padding-left: 24px; border-left: 1px solid rgba(255,255,255,0.07); }
-
-  .service-dot { width: 6px; height: 6px; background: var(--gold); flex-shrink: 0; margin-top: 9px; }
-  .service-name { font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.85); }
-  .service-desc { font-size: 12.5px; color: rgba(255,255,255,0.3); font-weight: 300; margin-top: 3px; }
-
-  .addons-panel { background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.2); padding: 40px; }
-
-  .addon-item { padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-  .addon-item:last-child { border-bottom: none; }
-  .addon-name { font-size: 14px; color: rgba(255,255,255,0.8); font-weight: 400; }
-  .addon-price { font-size: 11px; color: var(--gold); font-weight: 500; white-space: nowrap; letter-spacing: 0.3px; }
-
-  /* CONTACT */
-  #contact { background: var(--navy); position: relative; overflow: hidden; }
-  #contact::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(201,168,76,0.025) 60px, rgba(201,168,76,0.025) 61px); }
-
-  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; position: relative; z-index: 2; }
-
-  #contact .section-title { color: var(--white); }
-  #contact .section-sub { color: rgba(255,255,255,0.45); margin-bottom: 40px; }
-
-  .contact-info { display: flex; flex-direction: column; }
-
-  .contact-row { display: flex; align-items: baseline; gap: 20px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
-  .contact-row:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
-
-  .contact-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 500; min-width: 80px; }
-  .contact-value { font-size: 15px; color: rgba(255,255,255,0.8); font-weight: 300; text-decoration: none; transition: color 0.2s; }
-  .contact-value:hover { color: var(--gold-light); }
-
-  .contact-form { display: flex; flex-direction: column; gap: 18px; }
-
-  .form-group { display: flex; flex-direction: column; gap: 7px; }
-  .form-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 500; }
-
-  .form-input, .form-textarea {
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-    color: var(--white); padding: 14px 18px;
-    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 300;
-    outline: none; transition: border-color 0.2s; width: 100%;
+  /* "BASPAKET – INGÅR ALLTID" och "TILLÄGGSTJÄNSTER" – +50% */
+  .services-sublabel {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
   }
 
-  .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
-  .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.2); }
-  .form-textarea { height: 120px; resize: vertical; }
+  .services-list { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
 
-  .form-submit {
-    background: var(--gold); color: var(--navy); border: none;
-    padding: 15px 36px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
-    cursor: pointer; transition: all 0.2s; letter-spacing: 0.3px; align-self: flex-start;
-  }
+  .service-row { display: flex; align-items: flex-start; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); }
 
-  .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .service-check { width: 18px; height: 18px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .service-check svg { width: 9px; height: 9px; }
+  .service-info strong { display: block; font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+  .service-info span { font-size: 12.5px; color: var(--subtle); font-weight: 300; }
+
+  .addons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .addon { border: 1px solid var(--line); background: var(--white); border-radius: 4px; padding: 18px 20px; transition: border-color 0.2s; }
+  .addon:hover { border-color: var(--gold); }
+  .addon strong { display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+  .addon span { font-size: 11.5px; color: var(--subtle); font-weight: 300; }
+
+  /* PRISER */
+  .pricing-section { max-width: 100%; background: var(--navy); padding: 100px 0; }
+  .pricing-inner { max-width: 1200px; margin: 0 auto; padding: 0 80px; }
+  .pricing-inner .section-title { color: var(--white); }
+  .pricing-inner .section-sub { color: rgba(255,255,255,0.45); }
+  .pricing-inner .section-label span { color: var(--gold); }
+  .pricing-inner .section-label::before { background: var(--gold); }
+
+  .pricing-table { margin-top: 56px; border-collapse: collapse; width: 100%; }
+  .pricing-table thead tr { border-bottom: 1px solid rgba(196,163,90,0.3); }
+  .pricing-table th { font-size: 10px; font-weight: 500; letter-spacing: 1.8px; text-transform: uppercase; color: rgba(255,255,255,0.35); padding: 0 0 16px; text-align: left; }
+  .pricing-table th:last-child { text-align: right; }
+  .pricing-table td { padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,0.06); vertical-align: middle; }
+  .pricing-table tr:last-child td { border-bottom: none; }
+  .pricing-table .col-size { font-size: 15px; color: var(--white); font-weight: 300; }
+  .pricing-table .col-included { font-size: 12.5px; color: rgba(255,255,255,0.35); font-weight: 300; }
+  .pricing-table .col-price { font-size: 17px; font-weight: 400; color: var(--gold-light); text-align: right; white-space: nowrap; }
+  .pricing-note { margin-top: 24px; font-size: 12px; color: rgba(255,255,255,0.3); font-weight: 300; font-style: italic; line-height: 1.7; }
+
+  /* KONTAKT */
+  .contact-section { max-width: 100%; background: var(--cream); padding: 100px 0; }
+  .contact-inner { max-width: 1200px; margin: 0 auto; padding: 0 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+  .contact-detail { display: flex; flex-direction: column; gap: 20px; margin-top: 40px; }
+  .contact-row { display: flex; gap: 16px; align-items: flex-start; }
+  .contact-icon { width: 36px; height: 36px; background: var(--navy); border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .contact-icon svg { width: 15px; height: 15px; fill: var(--gold); }
+  .contact-row strong { display: block; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--subtle); margin-bottom: 4px; }
+  .contact-row a, .contact-row p { font-size: 14.5px; color: var(--ink); text-decoration: none; font-weight: 400; }
+  .contact-row a:hover { color: var(--navy-mid); }
+
+  .contact-form { background: var(--white); border: 1px solid var(--line); border-radius: 6px; padding: 44px 40px; }
+  .form-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--navy); margin-bottom: 28px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--subtle); margin-bottom: 8px; }
+  .form-group input, .form-group textarea { width: 100%; font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 300; color: var(--ink); background: var(--cream); border: 1px solid var(--line); border-radius: 3px; padding: 12px 16px; outline: none; transition: border-color 0.2s; resize: vertical; }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--navy-light); }
+  .form-group textarea { min-height: 110px; }
+  .form-submit { width: 100%; font-family: 'Outfit', sans-serif; font-size: 12.5px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--white); background: var(--navy); border: none; padding: 15px; border-radius: 2px; cursor: pointer; margin-top: 8px; transition: background 0.2s; }
+  .form-submit:hover { background: var(--navy-mid); }
+  .form-success { display: none; text-align: center; padding: 20px 0; font-size: 14px; color: var(--navy-mid); font-weight: 300; line-height: 1.7; }
 
   /* FOOTER */
-  footer {
-    background: #080f18; padding: 28px 8vw;
-    display: flex; justify-content: space-between; align-items: center;
-    border-top: 1px solid rgba(201,168,76,0.15);
-  }
-
-  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; color: var(--gold); text-decoration: none; }
-  .footer-meta { font-size: 12px; color: rgba(255,255,255,0.25); font-weight: 300; }
-  .footer-meta a { color: inherit; text-decoration: none; transition: color 0.2s; }
-  .footer-meta a:hover { color: var(--gold); }
+  footer { background: var(--navy); border-top: 1px solid rgba(196,163,90,0.15); padding: 40px 80px; display: flex; justify-content: space-between; align-items: center; }
+  footer img { height: 26px; filter: brightness(0) invert(1); opacity: 0.7; }
+  .footer-mid { font-size: 12px; color: rgba(255,255,255,0.25); font-weight: 300; text-align: center; line-height: 1.8; }
+  .footer-right { text-align: right; font-size: 12px; color: rgba(255,255,255,0.3); font-weight: 300; line-height: 1.8; }
 
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
+    from { opacity: 0; transform: translateY(18px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
   @media (max-width: 900px) {
-    #hero { grid-template-columns: 1fr; }
-    .hero-right { display: none; }
-    .hero-content { padding: 120px 6vw 60px; }
-    .pillars { grid-template-columns: 1fr; }
-    .services-layout { grid-template-columns: 1fr; gap: 48px; }
-    .service-list { grid-template-columns: 1fr; }
-    .service-item:nth-child(even) { border-left: none; padding-left: 0; }
-    .contact-layout { grid-template-columns: 1fr; gap: 48px; }
-    section { padding: 72px 6vw; }
+    nav { padding: 0 24px; }
     .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-content { padding: 110px 28px 60px; }
+    .hero-right { display: none; }
+    .pillars-inner, .services-inner, .pricing-inner, .contact-inner { padding: 0 28px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .services-layout { grid-template-columns: 1fr; gap: 44px; }
+    .contact-inner { grid-template-columns: 1fr; gap: 44px; }
+    .section-title { font-size: clamp(36px, 8vw, 56px); }
+    footer { padding: 32px 24px; flex-direction: column; gap: 16px; text-align: center; }
+    .footer-right { text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<nav id="nav">
+<nav>
   <a href="#" class="nav-logo">
-    <svg class="nav-logo-mark" viewBox="0 0 34 34" fill="none">
-      <rect x="1"  y="10" width="3" height="18" fill="#C9A84C" opacity="0.35"/>
-      <rect x="6"  y="6"  width="3" height="22" fill="#C9A84C" opacity="0.55"/>
-      <rect x="11" y="12" width="3" height="16" fill="#C9A84C" opacity="0.45"/>
-      <rect x="16" y="2"  width="3" height="26" fill="#C9A84C"/>
-      <rect x="21" y="8"  width="3" height="20" fill="#C9A84C" opacity="0.65"/>
-      <rect x="26" y="14" width="3" height="14" fill="#C9A84C" opacity="0.45"/>
-      <rect x="31" y="18" width="3" height="10" fill="#C9A84C" opacity="0.3"/>
-    </svg>
-    <div>
-      <span class="nav-logo-name">Nevia Group AB</span>
-      <span class="nav-logo-sub">Ekonomisk förvaltning</span>
-    </div>
+    <img src="logob.png" alt="Nevia Group AB">
   </a>
   <ul class="nav-links">
-    <li><a href="#how">Så arbetar vi</a></li>
-    <li><a href="#services">Tjänster</a></li>
-    <li><a href="om-oss.html">Om oss</a></li>
-    <li><a href="#contact" class="nav-cta">Boka möte</a></li>
+    <li><a href="#tjanster">Tjänster</a></li>
+    <li><a href="#priser">Priser</a></li>
+    <li><a href="#om">Varför Nevia</a></li>
+    <li><a href="#kontakt" class="nav-cta">Boka möte</a></li>
   </ul>
 </nav>
 
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-bar"></div>
-
+<div class="hero">
   <div class="hero-content">
-    <p class="eyebrow">Ekonomisk förvaltning för BRF</p>
-    <h1>Din förening är<br>inte <em>en i mängden.</em></h1>
-    <p class="hero-sub">Vi förklarar er ekonomi – inte bara sköter den. Fast pris, namngiven förvaltare och full överblick varje kvartal.</p>
+    <div class="eyebrow">
+      <span>Ekonomisk förvaltning för BRF</span>
+    </div>
+    <h1>Din förening är inte<br><em>en i mängden.</em></h1>
+    <p class="hero-sub">Vi förklarar er ekonomi – inte bara sköter den. Fast månadsavgift, namngiven förvaltare och full transparens från dag ett.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Boka kostnadsfritt möte</a>
-      <a href="#services" class="btn-ghost">Våra tjänster</a>
+      <a href="#kontakt" class="btn-primary">Boka kostnadsfritt möte</a>
+      <a href="#tjanster" class="btn-text">Se vad som ingår</a>
     </div>
   </div>
 
   <div class="hero-right">
     <div class="hero-card">
-      <p class="hero-card-num">01</p>
-      <h3 class="hero-card-title">En namngiven förvaltare</h3>
-      <p class="hero-card-desc">Du vet alltid vem som hanterar er ekonomi och kan nå dem direkt – inte en anonym support-kö.</p>
+      <div class="hero-card-num">01</div>
+      <div class="hero-card-title">En namngiven förvaltare – inte en anonym supportkö</div>
+      <div class="hero-card-desc">Ni vet alltid vem som hanterar er ekonomi och kan nå dem direkt.</div>
     </div>
     <div class="hero-card">
-      <p class="hero-card-num">02</p>
-      <h3 class="hero-card-title">Ni förstår er ekonomi – alltid</h3>
-      <p class="hero-card-desc">Vi förklarar, inte bara rapporterar. Kvartalsvis rapport med nyckeltal och benchmarking.</p>
+      <div class="hero-card-num">02</div>
+      <div class="hero-card-title">Ni förstår er ekonomi – alltid</div>
+      <div class="hero-card-desc">Kvartalsvis rapport med nyckeltal och benchmarking mot jämförbara föreningar.</div>
     </div>
     <div class="hero-card">
-      <p class="hero-card-num">03</p>
-      <h3 class="hero-card-title">Fast pris, inga överraskningar</h3>
-      <p class="hero-card-desc">En fast månadsavgift som täcker allt. Inga timkostnader, inga dolda poster på fakturan.</p>
+      <div class="hero-card-num">03</div>
+      <div class="hero-card-title">Fast pris – inga överraskningar på fakturan</div>
+      <div class="hero-card-desc">En fast månadsavgift som täcker allt. Inga dolda timkostnader.</div>
     </div>
   </div>
-</section>
+</div>
 
-<section id="how">
-  <p class="section-eyebrow">Så här arbetar vi</p>
-  <h2 class="section-title">Vi sköter ekonomin och ser till att<br>ni alltid förstår vad som händer.</h2>
-  <p class="section-sub">Tre principer som genomsyrar allt vi gör.</p>
-  <div class="pillars">
-    <div class="pillar">
-      <span class="pillar-num">01</span>
-      <h3 class="pillar-title">Personlig förvaltning</h3>
-      <p class="pillar-desc">Du får en namngiven förvaltare med direkt kontakt. Inte en kö, inte ett ärendesystem – en person som känner er förening.</p>
-      <div class="pillar-accent"></div>
-    </div>
-    <div class="pillar">
-      <span class="pillar-num">02</span>
-      <h3 class="pillar-title">Ni förstår er ekonomi</h3>
-      <p class="pillar-desc">Vi förklarar, inte bara rapporterar. Varje kvartal får ni en rapport som sätter siffrorna i ett sammanhang ni faktiskt förstår.</p>
-      <div class="pillar-accent"></div>
-    </div>
-    <div class="pillar">
-      <span class="pillar-num">03</span>
-      <h3 class="pillar-title">Full överblick, alltid</h3>
-      <p class="pillar-desc">Kvartalsvis rapport med nyckeltal jämfört med liknande föreningar. Ni ser alltid var föreningen står – utan att behöva fråga.</p>
-      <div class="pillar-accent"></div>
-    </div>
-  </div>
-</section>
-
-<section id="services">
-  <p class="section-eyebrow">Tjänster</p>
-  <h2 class="section-title" style="color:var(--white)">Allt er förening behöver –<br>i ett fast månadspaket.</h2>
-  <p class="section-sub">Baspaketet täcker hela er ekonomiska förvaltning. Tilläggstjänster aktiveras vid behov.</p>
-  <div class="services-layout">
-    <div>
-      <p class="services-label">Baspaket – ingår alltid</p>
-      <div class="service-list">
-        <div class="service-item"><div class="service-dot"></div><div><div class="service-name">Löpande bokföring</div><div class="service-desc">K3-standard, månadsvis</div></div></div>
-        <div class="service-item"><div class="service-dot"></div><div><div class="service-name">Avgiftsavier</div><div class="service-desc">Månadsvis till samtliga</div></div></div>
-        <div class="service-item"><div class="service-dot"></div><div><div class="service-name">Leverantörsfakturor</div><div class="service-desc">Digitalt attest-flöde</div></div></div>
-        <div class="service-item"><div class="service-dot"></div><div><div class="service-name">Årsredovisning</div><div class="service-desc">Inkl. förvaltningsberättelse</div></div></div>
-        <div class="service-item"><div class="service-dot"></div><div><div class="service-name">Medlemsregister</div><div class="service-desc">Inkl. överlåtelser</div></div></div>
-        <div class="service-item"><div class="service-dot"></div><div><div class="service-name">Skuldhantering</div><div class="service-desc">Påminnelse → kronofogden</div></div></div>
-        <div class="service-item"><div class="service-dot"></div><div><div class="service-name">Finansiell analys</div><div class="service-desc">Kvartalsvis benchmarking</div></div></div>
-        <div class="service-item"><div class="service-dot"></div><div><div class="service-name">Ekonomisk rådgivning</div><div class="service-desc">I frågor kopplade till uppdraget</div></div></div>
+<div class="pillars-section" id="om">
+  <div class="pillars-inner">
+    <div class="section-label reveal"><span>Varför Nevia</span></div>
+    <h2 class="section-title reveal">Förvaltning som<br><em>faktiskt fungerar</em></h2>
+    <p class="section-sub reveal">De flesta förvaltningsbolag är för stora för att bry sig och för anonyma för att hålla koll. Vi är byggda annorlunda.</p>
+    <div class="pillars-grid">
+      <div class="pillar reveal">
+        <div class="pillar-num">01</div>
+        <h3>Personlig förvaltning</h3>
+        <p>Ni vet alltid vem som hanterar er ekonomi och når dem direkt. Ingen telefonsvarare. Ingen biljetthantering.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">02</div>
+        <h3>Ni förstår er ekonomi</h3>
+        <p>Vi förklarar, inte bara rapporterar. Varje kvartal får ni en rapport som sätter siffrorna i ett sammanhang ni faktiskt förstår.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">03</div>
+        <h3>Full överblick, alltid</h3>
+        <p>Kvartalsvis rapport med nyckeltal jämfört med liknande föreningar. Ni ser alltid var föreningen står.</p>
       </div>
     </div>
-    <div class="addons-panel">
-      <p class="services-label">Tilläggstjänster</p>
-      <div class="addon-item"><span class="addon-name">Deklaration (INK4)</span><span class="addon-price">Fast avgift vid leverans</span></div>
-      <div class="addon-item"><span class="addon-name">Budget</span><span class="addon-price">Fast avgift vid leverans</span></div>
-      <div class="addon-item"><span class="addon-name">Likviditetsprognos</span><span class="addon-price">Fast månadsavgift</span></div>
-      <div class="addon-item"><span class="addon-name">Stämmohandlingar</span><span class="addon-price">Fast avgift vid leverans</span></div>
-      <div class="addon-item"><span class="addon-name">Uthyrningsregister</span><span class="addon-price">Fast månadsavgift</span></div>
-      <div class="addon-item"><span class="addon-name">Kreditupplysning</span><span class="addon-price">Per ärende</span></div>
-    </div>
   </div>
-</section>
+</div>
 
-<section id="contact">
-  <div class="contact-layout">
-    <div>
-      <p class="section-eyebrow">Kontakt</p>
-      <h2 class="section-title">Låt oss ta ett möte.</h2>
-      <p class="section-sub">Kostnadsfritt och utan förpliktelser. Vi går igenom er förenings situation och berättar vad Nevia kan erbjuda.</p>
-      <div class="contact-info">
-        <div class="contact-row"><span class="contact-label">E-post</span><a href="/cdn-cgi/l/email-protection#b5dedadbc1d4dec1f5dbd0c3dcd49bc6d0" class="contact-value"><span class="__cf_email__" data-cfemail="701b1f1e04111b04301e150619115e0315">[email&#160;protected]</span></a></div>
-        <div class="contact-row"><span class="contact-label">Telefon</span><a href="tel:0762916283" class="contact-value">076 291 62 83</a></div>
-        <div class="contact-row"><span class="contact-label">Org.nr</span><span class="contact-value">559579-8579</span></div>
+<div class="services-section" id="tjanster">
+  <div class="services-inner">
+    <div class="section-label reveal"><span>Tjänster</span></div>
+    <h2 class="section-title reveal">Allt er förening<br><em>behöver</em></h2>
+    <p class="section-sub reveal">Baspaketet täcker hela den ekonomiska förvaltningen. Tilläggstjänster aktiveras vid behov.</p>
+    <div class="services-layout">
+      <div>
+        <span class="services-sublabel reveal">Baspaket – ingår alltid</span>
+        <div class="services-list">
+          <div class="service-row reveal"><div class="service-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#c4a35a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="service-info"><strong>Löpande bokföring</strong><span>K3-standard, månadsvis</span></div></div>
+          <div class="service-row reveal"><div class="service-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#c4a35a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="service-info"><strong>Leverantörsfakturor</strong><span>Digitalt attest-flöde</span></div></div>
+          <div class="service-row reveal"><div class="service-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#c4a35a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="service-info"><strong>Avgiftsavier</strong><span>Månadsvis till samtliga medlemmar</span></div></div>
+          <div class="service-row reveal"><div class="service-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#c4a35a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="service-info"><strong>Årsredovisning</strong><span>Inkl. förvaltningsberättelse</span></div></div>
+          <div class="service-row reveal"><div class="service-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#c4a35a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="service-info"><strong>Medlemsregister & överlåtelser</strong><span>Löpande hantering av köp och försäljning</span></div></div>
+          <div class="service-row reveal"><div class="service-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#c4a35a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="service-info"><strong>Skuldhantering</strong><span>Påminnelse → inkasso → kronofogden</span></div></div>
+          <div class="service-row reveal"><div class="service-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#c4a35a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="service-info"><strong>Finansiell analys & benchmarking</strong><span>Kvartalsvis rapport med nyckeltal</span></div></div>
+          <div class="service-row reveal"><div class="service-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#c4a35a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="service-info"><strong>Ekonomisk rådgivning</strong><span>I frågor kopplade till uppdraget</span></div></div>
+        </div>
+      </div>
+      <div>
+        <span class="services-sublabel reveal">Tilläggstjänster</span>
+        <div class="addons-grid">
+          <div class="addon reveal"><strong>Deklaration (INK4)</strong><span>Fast avgift vid leverans</span></div>
+          <div class="addon reveal"><strong>Budget</strong><span>Fast avgift vid leverans</span></div>
+          <div class="addon reveal"><strong>Likviditetsprognos</strong><span>Fast månadsavgift</span></div>
+          <div class="addon reveal"><strong>Stämmohandlingar</strong><span>Fast avgift vid leverans</span></div>
+          <div class="addon reveal"><strong>Uthyrningsregister</strong><span>Fast månadsavgift</span></div>
+          <div class="addon reveal"><strong>Kreditupplysning</strong><span>Per ärende</span></div>
+        </div>
       </div>
     </div>
-    <form class="contact-form" id="kontaktformular">
-      <div class="form-group"><label class="form-label">Namn</label><input class="form-input" type="text" name="namn" placeholder="Ert namn" required></div>
-      <div class="form-group"><label class="form-label">E-post</label><input class="form-input" type="email" name="email" placeholder="er@epost.se" required></div>
-      <div class="form-group"><label class="form-label">Förening</label><input class="form-input" type="text" name="forening" placeholder="Föreningens namn"></div>
-      <div class="form-group"><label class="form-label">Meddelande</label><textarea class="form-textarea" name="meddelande" placeholder="Berätta kort om er förening..."></textarea></div>
-      <button type="submit" class="form-submit">Skicka meddelande</button>
-    </form>
   </div>
-</section>
+</div>
+
+<div class="pricing-section" id="priser">
+  <div class="pricing-inner">
+    <div class="section-label reveal"><span>Prissättning</span></div>
+    <h2 class="section-title reveal">Transparent<br><em>prissättning</em></h2>
+    <p class="section-sub reveal">Fast månadsavgift baserad på föreningens storlek. Ni vet exakt vad ni betalar.</p>
+    <table class="pricing-table reveal">
+      <thead><tr><th>Föreningsstorlek</th><th>Vad ingår</th><th>Månadsavgift exkl. moms</th></tr></thead>
+      <tbody>
+        <tr><td class="col-size">Upp till 20 lägenheter</td><td class="col-included">Hela baspaketet</td><td class="col-price">fr. 3 200 kr/mån</td></tr>
+        <tr><td class="col-size">21–50 lägenheter</td><td class="col-included">Hela baspaketet</td><td class="col-price">fr. 4 800 kr/mån</td></tr>
+        <tr><td class="col-size">51–100 lägenheter</td><td class="col-included">Hela baspaketet</td><td class="col-price">fr. 7 200 kr/mån</td></tr>
+        <tr><td class="col-size">100+ lägenheter</td><td class="col-included">Hela baspaketet</td><td class="col-price">Offert</td></tr>
+      </tbody>
+    </table>
+    <p class="pricing-note reveal">Prisjustering sker en gång per år i september i enlighet med KPI-förändringen. Fakturering sker månadsvis i förskott.</p>
+  </div>
+</div>
+
+<div class="contact-section" id="kontakt">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="section-label reveal"><span>Kontakt</span></div>
+      <h2 class="section-title reveal">Boka ett<br><em>möte</em></h2>
+      <p class="section-sub reveal">Kostnadsfritt och utan förpliktelser. Ingen försäljningspitch – bara ett ärligt samtal om er situation.</p>
+      <div class="contact-detail">
+        <div class="contact-row reveal"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div><div><strong>E-post</strong><a href="mailto:kontakt@nevia.se">kontakt@nevia.se</a></div></div>
+        <div class="contact-row reveal"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.62 21 3 13.38 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg></div><div><strong>Telefon</strong><a href="tel:+46762916283">076 291 62 83</a></div></div>
+        <div class="contact-row reveal"><div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg></div><div><strong>Organisationsnummer</strong><p>559579-8579</p></div></div>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <p class="form-title">Skriv till oss</p>
+      <form id="contact-form" action="https://formspree.io/f/mojpbobl" method="POST">
+        <div class="form-group"><label>Namn</label><input type="text" name="name" placeholder="För- och efternamn" required></div>
+        <div class="form-group"><label>E-post</label><input type="email" name="email" placeholder="er@forening.se" required></div>
+        <div class="form-group"><label>Förening & antal lägenheter</label><input type="text" name="forening" placeholder="BRF Solrosen, 45 lgh"></div>
+        <div class="form-group"><label>Meddelande</label><textarea name="message" placeholder="Berätta kort om er situation eller vad ni funderar på..."></textarea></div>
+        <button type="submit" class="form-submit">Skicka meddelande</button>
+      </form>
+      <div class="form-success" id="form-success">
+        <p style="font-size:18px;margin-bottom:8px;">✓</p>
+        <p>Tack för ditt meddelande.<br>Vi återkommer inom en arbetsdag.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <footer>
-  <a href="#" class="footer-logo">Nevia Group AB</a>
-  <p class="footer-meta">Org.nr 559579-8579 &nbsp;·&nbsp; © 2025 Nevia Group AB &nbsp;·&nbsp; <a href="om-oss.html">Om oss</a></p>
+  <img src="logob.png" alt="Nevia Group AB">
+  <div class="footer-mid">Nevia Group AB · Org.nr 559579-8579<br>Ekonomisk förvaltning för bostadsrättsföreningar</div>
+  <div class="footer-right">kontakt@nevia.se<br>076 291 62 83</div>
 </footer>
 
 <script>
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const href = a.getAttribute('href');
-      if (href === '#') return;
-      e.preventDefault();
-      const target = document.querySelector(href);
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
     });
-  });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
 
-  const form = document.getElementById('kontaktformular');
-  form.addEventListener('submit', async e => {
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('form-success');
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('.form-submit');
     btn.textContent = 'Skickar...';
     btn.disabled = true;
     try {
-      const response = await fetch('https://formspree.io/f/mojpbobl', {
+      const res = await fetch(form.action, {
         method: 'POST',
         body: new FormData(form),
         headers: { 'Accept': 'application/json' }
       });
-      if (response.ok) {
-        form.innerHTML = '<div style="padding:40px 0;"><p style="font-family:Cormorant Garamond,serif;font-size:36px;font-weight:700;color:#C9A84C;margin-bottom:12px;">Tack för ditt meddelande.</p><p style="font-size:15px;color:rgba(255,255,255,0.6);font-weight:300;line-height:1.8;">Vi återkommer inom kort.</p></div>';
+      if (res.ok) {
+        form.style.display = 'none';
+        success.style.display = 'block';
       } else {
         btn.textContent = 'Något gick fel – försök igen';
         btn.disabled = false;
@@ -478,11 +580,7 @@
       btn.disabled = false;
     }
   });
-
-  window.addEventListener('scroll', () => {
-    document.getElementById('nav').style.borderBottomColor =
-      window.scrollY > 60 ? 'rgba(201,168,76,0.35)' : 'rgba(201,168,76,0.2)';
-  });
 </script>
+
 </body>
 </html>
