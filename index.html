@@ -52,7 +52,12 @@
 
   .nav-logo img {
     height: 35px;
-    filter: none; /* naturlig mörkblå färg */
+    filter: none;
+  }
+  .footer-logo {
+    height: 26px;
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
   }
 
   .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
@@ -357,7 +362,6 @@
 
   /* FOOTER */
   footer { background: var(--navy); border-top: 1px solid rgba(196,163,90,0.15); padding: 40px 80px; display: flex; justify-content: space-between; align-items: center; }
-  footer img { height: 26px; filter: brightness(0) invert(1); opacity: 0.7; }
   .footer-mid { font-size: 12px; color: rgba(255,255,255,0.25); font-weight: 300; text-align: center; line-height: 1.8; }
   .footer-right { text-align: right; font-size: 12px; color: rgba(255,255,255,0.3); font-weight: 300; line-height: 1.8; }
 
@@ -388,8 +392,16 @@
 <body>
 
 <nav>
-  <a href="#" class="nav-logo">
-    <img src="logob.png" alt="Nevia Group AB">
+    <a href="#" class="nav-logo" style="display:inline-flex;align-items:center;text-decoration:none;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 50" height="34" aria-label="Nevia Group AB">
+      <rect x="0"  y="28" width="4" height="16" rx="1" fill="#b8892a" opacity="0.4"/>
+      <rect x="8"  y="23" width="4" height="21" rx="1" fill="#c9981f" opacity="0.65"/>
+      <rect x="16" y="30" width="4" height="14" rx="1" fill="#c9981f" opacity="0.5"/>
+      <rect x="24" y="19" width="4" height="25" rx="1" fill="#d4a520"/>
+      <rect x="32" y="25" width="4" height="19" rx="1" fill="#c9981f" opacity="0.7"/>
+      <rect x="40" y="31" width="4" height="13" rx="1" fill="#b8892a" opacity="0.5"/>
+      <text x="52" y="42" font-family="Georgia,'Times New Roman',serif" font-size="38" font-weight="400" fill="#0d1f3c" letter-spacing="-0.5">Nevia</text>
+    </svg>
   </a>
   <ul class="nav-links">
     <li><a href="#tjanster">Tjänster</a></li>
@@ -538,7 +550,15 @@
 </div>
 
 <footer>
-  <img src="logob.png" alt="Nevia Group AB">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 50" height="26" aria-label="Nevia Group AB">
+    <rect x="0"  y="28" width="4" height="16" rx="1" fill="#b8892a" opacity="0.5"/>
+    <rect x="8"  y="23" width="4" height="21" rx="1" fill="#c9981f" opacity="0.75"/>
+    <rect x="16" y="30" width="4" height="14" rx="1" fill="#c9981f" opacity="0.6"/>
+    <rect x="24" y="19" width="4" height="25" rx="1" fill="#d4a520"/>
+    <rect x="32" y="25" width="4" height="19" rx="1" fill="#c9981f" opacity="0.8"/>
+    <rect x="40" y="31" width="4" height="13" rx="1" fill="#b8892a" opacity="0.6"/>
+    <text x="52" y="42" font-family="Georgia,'Times New Roman',serif" font-size="38" font-weight="400" fill="rgba(255,255,255,0.7)" letter-spacing="-0.5">Nevia</text>
+  </svg>
   <div class="footer-mid">Nevia Group AB · Org.nr 559579-8579<br>Ekonomisk förvaltning för bostadsrättsföreningar</div>
   <div class="footer-right">kontakt@nevia.se<br>076 291 62 83</div>
 </footer>
